@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía de Programación - Klee</title>
     <style>
-        /* Mantenemos tus estilos originales intactos */
+        /* Estilos base y fondo */
         * { box-sizing: border-box; }
 
         body {
@@ -56,11 +56,7 @@
             font-size: 0.9rem;
         }
 
-        .github-badge a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
+        /* Estructura del Libro */
         .book {
             position: relative;
             width: 380px;
@@ -83,8 +79,6 @@
             cursor: grab;
             transform-style: preserve-3d;
         }
-
-        .paper.holding { cursor: grabbing; transition: none; }
 
         .front, .back {
             position: absolute;
@@ -121,6 +115,8 @@
             border-top: 1px solid #eee; 
         }
         
+        /* Tipografía y elementos de contenido */
+        h1 { font-size: 2.2rem; margin: 0; }
         h2 { 
             margin-top: 0; 
             color: #2c3e50; 
@@ -128,35 +124,15 @@
             display: inline-block; 
             padding-bottom: 5px;
         }
-
-        h3 { 
-            color: #e67e22; 
-            margin: 12px 0 5px 0; 
-        }
-
-        p { 
-            line-height: 1.5; 
-            color: #34495e; 
-            margin: 8px 0;
-        }
-
-        ul, ol {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        li {
-            margin: 5px 0;
-            color: #34495e;
-        }
+        h3 { color: #e67e22; margin: 12px 0 5px 0; }
+        p { line-height: 1.5; color: #34495e; margin: 8px 0; }
         
         code {
             background: #f0f0f0;
             padding: 2px 5px;
             border-radius: 4px;
-            font-family: 'Consolas', 'Monaco', monospace;
+            font-family: 'Consolas', monospace;
             color: #c0392b;
-            font-size: 0.9em;
         }
 
         pre {
@@ -166,31 +142,29 @@
             border-radius: 5px;
             font-size: 0.8rem;
             overflow-x: auto;
-            margin: 10px 0;
             border-left: 4px solid #3498db;
-            font-family: 'Consolas', 'Monaco', monospace;
         }
 
+        /* Portada Específica */
         #p1 .front {
             background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
             color: white;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
         }
 
         .cover-photo {
             width: 85%;
-            height: 200px;
+            height: 250px; /* Ajustado para la nueva imagen */
             object-fit: cover;
             border: 3px solid rgba(255,255,255,0.3);
             border-radius: 15px;
             margin-bottom: 20px;
         }
 
-        #p1 h1 { font-size: 2.2rem; margin: 0; }
-        .subtitle { color: #3498db; font-weight: bold; }
+        .subtitle { color: #3498db; font-weight: bold; margin-bottom: 5px; }
+        .author { font-style: italic; opacity: 0.8; }
 
         @media (max-width: 768px) {
             .book { width: 90vw; height: 70vh; }
@@ -199,7 +173,7 @@
 </head>
 <body>
 
-    <div class="instructions">📖 Arrastra las páginas para leer</div>
+    <div class="instructions">📖 Haz clic para pasar página | Click derecho para volver</div>
 
     <div class="github-badge">
         <a href="#" target="_blank">⭐ GitHub: Klee</a>
@@ -210,7 +184,7 @@
         <div class="paper" id="p1" style="z-index: 7;">
             <div class="front">
                 <div class="cover-content">
-                    <img src="https://avatars.githubusercontent.com/u/kevinreyes-garcia-rgb?s=400&v=4" alt="Portada" class="cover-photo">
+                    <img src="https://files.catbox.moe/8fcb4j.jpeg" alt="Portada" class="cover-photo">
                     <h1>Guía Dev</h1>
                     <div class="subtitle">HTML • JS • C++</div>
                     <div class="author">Por: Klee</div>
@@ -221,11 +195,11 @@
                     <h2>Introducción</h2>
                     <p>Dominar la programación requiere entender tres niveles:</p>
                     <ul>
-                        <li><strong>Estructura:</strong> Cómo se organizan los datos (HTML).</li>
-                        <li><strong>Lógica:</strong> Cómo interactúan los elementos (JS).</li>
-                        <li><strong>Rendimiento:</strong> Cómo se gestiona la memoria (C++).</li>
+                        <li><strong>Estructura:</strong> Organización de datos (HTML).</li>
+                        <li><strong>Lógica:</strong> Interacción y comportamiento (JS).</li>
+                        <li><strong>Rendimiento:</strong> Gestión de recursos (C++).</li>
                     </ul>
-                    <p>Esta guía te llevará desde lo visual hasta el corazón del hardware.</p>
+                    <p>Esta guía es un mapa rápido para navegar por estos mundos.</p>
                 </div>
                 <div class="page-num">1</div>
             </div>
@@ -236,27 +210,25 @@
                 <div class="content">
                     <h2>HTML5 Avanzado</h2>
                     <h3>Semántica Web</h3>
-                    <p>No uses solo <code>&lt;div&gt;</code>. La semántica ayuda al SEO y accesibilidad:</p>
+                    <p>La estructura correcta mejora el SEO y la accesibilidad:</p>
                     <ul>
-                        <li><code>&lt;header&gt;</code>: Navegación y logos.</li>
-                        <li><code>&lt;main&gt;</code>: Contenido principal único.</li>
-                        <li><code>&lt;article&gt;</code>: Contenido independiente.</li>
+                        <li><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code></li>
+                        <li><code>&lt;main&gt;</code>, <code>&lt;section&gt;</code></li>
+                        <li><code>&lt;footer&gt;</code></li>
                     </ul>
-                    <pre>&lt;article&gt;
-  &lt;h2&gt;Título&lt;/h2&gt;
-  &lt;p&gt;Post...&lt;/p&gt;
-&lt;/article&gt;</pre>
+                    <pre>&lt;main&gt;
+  &lt;section&gt;Contenido&lt;/section&gt;
+&lt;/main&gt;</pre>
                 </div>
                 <div class="page-num">2</div>
             </div>
             <div class="back">
                 <div class="content">
-                    <h3>Formularios y Datos</h3>
-                    <p>Los formularios son la base de la interacción:</p>
-                    <pre>&lt;input type="email"&gt;
-&lt;input type="range"&gt;
-&lt;datalist&gt; </pre>
-                    <p><strong>Tip:</strong> Usa siempre el atributo <code>alt</code> en imágenes para que los lectores de pantalla puedan "leerlas".</p>
+                    <h3>Atributos Clave</h3>
+                    <p>No olvides el poder de los datos personalizados y la validación nativa:</p>
+                    <pre>&lt;input required 
+       pattern="[A-Za-z]{3}"&gt;</pre>
+                    <p><strong>Tip:</strong> Usa <code>aria-label</code> para mejorar la experiencia de usuarios con lectores de pantalla.</p>
                 </div>
                 <div class="page-num">3</div>
             </div>
@@ -266,27 +238,22 @@
             <div class="front">
                 <div class="content">
                     <h2>JavaScript</h2>
-                    <h3>Variables y Tipos</h3>
-                    <p>Moderniza tu código con ES6+:</p>
-                    <p><code>const</code>: Para valores fijos.<br>
-                    <code>let</code>: Para valores que cambian.</p>
-                    <pre>const suma = (a, b) => a + b;
-console.log(suma(5, 10));</pre>
-                    <h3>DOM</h3>
-                    <p>Es el puente entre JS y HTML.</p>
+                    <h3>ES6+ Moderno</h3>
+                    <p>Usa la desestructuración para un código más limpio:</p>
+                    <pre>const user = {name: 'Klee', id: 1};
+const {name} = user;</pre>
+                    <p>Las <em>Arrow Functions</em> mantienen el contexto de <code>this</code> de forma automática.</p>
                 </div>
                 <div class="page-num">4</div>
             </div>
             <div class="back">
                 <div class="content">
-                    <h3>Asincronía</h3>
-                    <p>JavaScript no se detiene. Aprende a manejar esperas:</p>
-                    <pre>async function getData() {
-  const res = await fetch(url);
-  const data = await res.json();
-  console.log(data);
+                    <h3>Manejo de API</h3>
+                    <p>Fetch y Async/Await son tus mejores amigos para datos externos:</p>
+                    <pre>async function call() {
+  const r = await fetch(url);
+  const d = await r.json();
 }</pre>
-                    <p>Usa <code>Promises</code> para evitar que tu web se congele al cargar datos.</p>
                 </div>
                 <div class="page-num">5</div>
             </div>
@@ -296,24 +263,23 @@ console.log(suma(5, 10));</pre>
             <div class="front">
                 <div class="content">
                     <h2>Lenguaje C++</h2>
-                    <h3>Poder y Control</h3>
-                    <p>C++ se usa en videojuegos y sistemas operativos porque es extremadamente rápido.</p>
-                    <pre>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-  cout << "Hola Mundo";
-  return 0;
-}</pre>
+                    <h3>Gestión de Memoria</h3>
+                    <p>Aquí tienes el control total del hardware mediante punteros:</p>
+                    <pre>int x = 10;
+int* ptr = &x; 
+// ptr guarda la dirección</pre>
                 </div>
                 <div class="page-num">6</div>
             </div>
             <div class="back">
                 <div class="content">
-                    <h3>Punteros y Memoria</h3>
-                    <p>A diferencia de JS, en C++ tú gestionas la memoria:</p>
-                    <p><code>int* p = &var;</code></p>
-                    <p>Un <strong>puntero</strong> guarda la dirección de memoria de otra variable. Es difícil pero te da control total sobre el hardware.</p>
+                    <h3>POO en C++</h3>
+                    <p>Las clases permiten crear sistemas robustos y eficientes:</p>
+                    <pre>class Bot {
+  public:
+    void saludar();
+};</pre>
+                    <p>Ideal para motores de juegos y sistemas de alto rendimiento.</p>
                 </div>
                 <div class="page-num">7</div>
             </div>
@@ -323,28 +289,24 @@ int main() {
             <div class="front">
                 <div class="content">
                     <h2>README.md</h2>
-                    <h3>Documentación</h3>
-                    <p>Todo buen proyecto necesita un archivo de lectura claro.</p>
-                    <p><strong>Estructura ideal:</strong></p>
+                    <h3>El arte de explicar</h3>
+                    <p>Un repositorio sin README es un libro sin título. Incluye:</p>
                     <ol>
-                        <li>Título y Descripción</li>
                         <li>Instalación</li>
-                        <li>Capturas de pantalla</li>
-                        <li>Tecnologías usadas</li>
-                        <li>Licencia</li>
+                        <li>Uso básico</li>
+                        <li>Contribuidores</li>
                     </ol>
                 </div>
                 <div class="page-num">8</div>
             </div>
             <div class="back">
                 <div class="content">
-                    <h3>Markdown Tips</h3>
-                    <p>Usa guiones para listas y tres tildes para código:</p>
-                    <pre># Título H1
-## Subtítulo H2
-[Texto](URL-Enlace)
-![Alt](URL-Imagen)</pre>
-                    <p>Un buen README hace que otros quieran colaborar en tu GitHub.</p>
+                    <h3>Markdown Pro</h3>
+                    <p>Usa tablas para comparar características:</p>
+                    <pre>| Var | Uso |
+|-----|-----|
+| let | Var |
+|const| Fijo|</pre>
                 </div>
                 <div class="page-num">9</div>
             </div>
@@ -353,12 +315,11 @@ int main() {
         <div class="paper" id="p6" style="z-index: 2;">
             <div class="front">
                 <div class="content">
-                    <h2>Ruta de Aprendizaje</h2>
-                    <h3>¿Cómo mejorar?</h3>
+                    <h2>Consejos Finales</h2>
                     <ul>
-                        <li><strong>Proyectos Reales:</strong> No solo veas tutoriales, construye algo.</li>
-                        <li><strong>Clean Code:</strong> Escribe código que un humano entienda.</li>
-                        <li><strong>Algoritmos:</strong> Resuelve retos en LeetCode o HackerRank.</li>
+                        <li>Escribe código para humanos, no para máquinas.</li>
+                        <li>No dejes de practicar lógica.</li>
+                        <li>Documenta mientras programas.</li>
                     </ul>
                 </div>
                 <div class="page-num">10</div>
@@ -366,8 +327,10 @@ int main() {
             <div class="back">
                 <div class="content">
                     <h2>¡Fin de la Guía!</h2>
-                    <p>Has recorrido desde las etiquetas básicas hasta la gestión de memoria en C++.</p>
-                    <p>Recuerda: <em>"La programación no es lo que sabes, es lo que puedes resolver."</em></p>
+                    <p>Gracias por leer este compendio técnico.</p>
+                    <p style="font-size: 1.2rem; text-align: center; margin-top: 40px;">
+                        "Keep coding, keep exploding!"
+                    </p>
                     <hr>
                     <p style="text-align:center">Desarrollado con ❤️ por <strong>Klee</strong></p>
                 </div>
@@ -378,13 +341,13 @@ int main() {
     </div>
 
     <script>
-        // Lógica de paso de páginas (Simplificada y funcional)
         const papers = document.querySelectorAll(".paper");
         let currentLocation = 1;
         let numOfPapers = papers.length;
         let maxLocation = numOfPapers + 1;
 
         papers.forEach((paper, index) => {
+            // Click izquierdo para avanzar
             paper.addEventListener("click", () => {
                 if (currentLocation < maxLocation) {
                     paper.style.transform = "rotateY(-180deg)";
@@ -393,12 +356,14 @@ int main() {
                 }
             });
             
-            // Permitir volver atrás (opcional pero recomendado)
+            // Click derecho para retroceder
             paper.addEventListener("contextmenu", (e) => {
                 e.preventDefault();
-                paper.style.transform = "rotateY(0deg)";
-                paper.style.zIndex = numOfPapers - index;
-                currentLocation--;
+                if (currentLocation > 1) {
+                    paper.style.transform = "rotateY(0deg)";
+                    paper.style.zIndex = numOfPapers - index + 1;
+                    currentLocation--;
+                }
             });
         });
     </script>
